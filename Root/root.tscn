@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://cos8yxww56gbt"]
 
 [ext_resource type="PackedScene" uid="uid://djp7kk3ttywwa" path="res://Root/Player/player.tscn" id="1_lya30"]
+[ext_resource type="PackedScene" uid="uid://gq2c428xqwcr" path="res://Root/Map/ParallaxLayer/Layer 1/floor.tscn" id="2_8fnrc"]
+[ext_resource type="Script" uid="uid://dc8mcvdhs2iu0" path="res://Root/layer_1.gd" id="2_s0oq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
+size = Vector2(17.5, 36)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p1dep"]
 
 [node name="Root" type="Node2D" unique_id=1429275306]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2007243293]
-position = Vector2(97, 215)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1733613944]
-shape = SubResource("WorldBoundaryShape2D_p1dep")
-metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1191274380]
 position = Vector2(210, 117)
@@ -19,3 +17,44 @@ zoom = Vector2(2.75, 2.75)
 
 [node name="Player" parent="." unique_id=552128160 instance=ExtResource("1_lya30")]
 position = Vector2(62, 180)
+
+[node name="Player_Collision" type="Area2D" parent="Player" unique_id=1352966936]
+position = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player_Collision" unique_id=1801932463]
+position = Vector2(-0.25, 3)
+shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="ParallaxLayer" type="Node2D" parent="." unique_id=1014615478]
+
+[node name="Layer1" type="StaticBody2D" parent="ParallaxLayer" unique_id=2007243293]
+position = Vector2(97, 215)
+collision_layer = 3
+script = ExtResource("2_s0oq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/Layer1" unique_id=1733613944]
+position = Vector2(0, 6)
+shape = SubResource("WorldBoundaryShape2D_p1dep")
+
+[node name="Marker2D" type="Marker2D" parent="ParallaxLayer/Layer1" unique_id=1178522926]
+position = Vector2(323, 50)
+
+[node name="GeneratedFloor" type="Node2D" parent="ParallaxLayer/Layer1" unique_id=1823269014]
+
+[node name="Floor" parent="ParallaxLayer/Layer1/GeneratedFloor" unique_id=874882715 instance=ExtResource("2_8fnrc")]
+position = Vector2(323, 50)
+
+[node name="Floor2" parent="ParallaxLayer/Layer1/GeneratedFloor" unique_id=1549416975 instance=ExtResource("2_8fnrc")]
+position = Vector2(179, 50)
+
+[node name="Floor3" parent="ParallaxLayer/Layer1/GeneratedFloor" unique_id=1061621489 instance=ExtResource("2_8fnrc")]
+position = Vector2(35, 50)
+
+[node name="Floor4" parent="ParallaxLayer/Layer1/GeneratedFloor" unique_id=1274626046 instance=ExtResource("2_8fnrc")]
+position = Vector2(-109, 50)
+
+[node name="NewFloorTimer" type="Timer" parent="ParallaxLayer/Layer1" unique_id=1880201129]
+wait_time = 0.42
+autostart = true
+
+[connection signal="timeout" from="ParallaxLayer/Layer1/NewFloorTimer" to="ParallaxLayer/Layer1" method="_on_new_floor_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dy1ob6q5rb4vn"]
+
+[ext_resource type="Script" uid="uid://fksl7wpcso6c" path="res://Root/Map/ParallaxLayer/parallax_layer_parent.gd" id="1_fy5xy"]
+
+[node name="ParallaxLayerParent" type="Area2D" unique_id=874882715]
+script = ExtResource("1_fy5xy")

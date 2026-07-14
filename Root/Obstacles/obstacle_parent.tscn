@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cojsia42kpmml"]
+
+[ext_resource type="Script" uid="uid://cpcasexlpc6xj" path="res://Root/Obstacles/obstacle_parent.gd" id="1_t4ntv"]
+
+[node name="ObstacleParent" type="Area2D" unique_id=549210939]
+script = ExtResource("1_t4ntv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
