@@ -26,6 +26,7 @@ folder_colors={
 "res://Root/Map/": "red",
 "res://Root/Map/ParallaxLayer/Layer 1/": "orange",
 "res://Root/Map/ParallaxLayer/Layer 2/": "yellow",
+"res://Root/Map/ParallaxLayer/Layer 3/": "green",
 "res://Root/Obstacles/": "blue",
 "res://Root/Player/": "green"
 }

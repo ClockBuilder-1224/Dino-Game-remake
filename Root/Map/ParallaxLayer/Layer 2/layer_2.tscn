@@ -35,13 +35,16 @@ shape = SubResource("RectangleShape2D_p1dep")
 [node name="ObjectGenerationLocations" type="Node2D" parent="." index="2" unique_id=1829257708]
 
 [node name="Marker2D" type="Marker2D" parent="ObjectGenerationLocations" index="0" unique_id=365407886]
-position = Vector2(16, -14)
+unique_name_in_owner = true
+position = Vector2(16, -18)
 
 [node name="Marker2D2" type="Marker2D" parent="ObjectGenerationLocations" index="1" unique_id=1644529892]
-position = Vector2(88, -16)
+unique_name_in_owner = true
+position = Vector2(88, -19)
 
 [node name="Marker2D3" type="Marker2D" parent="ObjectGenerationLocations" index="2" unique_id=197779464]
-position = Vector2(151, -17)
+unique_name_in_owner = true
+position = Vector2(151, -21)
 
 [node name="Cactus" type="Node2D" parent="." index="3" unique_id=1900938670]
 visible = false
@@ -79,14 +82,14 @@ region_rect = Rect2(72, 22, 28, 32)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sign" index="1" unique_id=1056868872]
 occluder = SubResource("OccluderPolygon2D_64bh7")
 
-[node name="Sign2" type="Node2D" parent="." index="6" unique_id=1059323114]
+[node name="Box" type="Node2D" parent="." index="6" unique_id=1059323114]
 visible = false
 
-[node name="image" type="Sprite2D" parent="Sign2" index="0" unique_id=981611563]
+[node name="image" type="Sprite2D" parent="Box" index="0" unique_id=981611563]
 position = Vector2(0, -8)
 texture = ExtResource("3_y1sdj")
 region_enabled = true
 region_rect = Rect2(102, 38, 18, 16)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sign2" index="1" unique_id=687194586]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Box" index="1" unique_id=687194586]
 occluder = SubResource("OccluderPolygon2D_c2h40")
