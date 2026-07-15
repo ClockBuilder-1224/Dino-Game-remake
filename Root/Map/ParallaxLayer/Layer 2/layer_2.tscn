@@ -21,6 +21,8 @@ polygon = PackedVector2Array(-3, 0, -3, -10, -4, -10, -4, -12, -13, -12, -13, -2
 polygon = PackedVector2Array(-7, 0, -7, -12, -6, -12, -6, -13, 6, -13, 6, -12, 7, -12, 7, 0)
 
 [node name="Layer_2" unique_id=874882715 instance=ExtResource("1_0y46c")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_64bh7")
 SPEED = 240
 

@@ -90,5 +90,7 @@ position = Vector2(477, 231)
 wait_time = 0.9
 autostart = true
 
+[node name="Layer3" type="StaticBody2D" parent="ParallaxLayer" unique_id=2051338411]
+
 [connection signal="timeout" from="ParallaxLayer/Floor/NewFloorTimer" to="ParallaxLayer/Floor" method="_on_new_floor_timer_timeout"]
 [connection signal="timeout" from="ParallaxLayer/Layer2/GenerationTime" to="ParallaxLayer/Layer2" method="_on_generation_time_timeout"]

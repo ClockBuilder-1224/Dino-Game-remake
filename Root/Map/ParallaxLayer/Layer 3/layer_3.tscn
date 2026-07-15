@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dx8t66hswt53k"]
+
+[ext_resource type="PackedScene" uid="uid://dy1ob6q5rb4vn" path="res://Root/Map/ParallaxLayer/parallax_layer_parent.tscn" id="1_x32ry"]
+[ext_resource type="Texture2D" uid="uid://b21garhwxwnnf" path="res://Root/Map/ParallaxLayer/Layer 3/RepeatableLayer.png" id="2_wkmk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
+
+[node name="Layer_3" unique_id=874882715 instance=ExtResource("1_x32ry")]
+collision_layer = 2
+collision_mask = 2
+SPEED = 32
+
+[node name="RepeatableLayer" type="Sprite2D" parent="." index="0" unique_id=1562355574]
+position = Vector2(120, -48)
+texture = ExtResource("2_wkmk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1936755109]
+shape = SubResource("RectangleShape2D_p1dep")
