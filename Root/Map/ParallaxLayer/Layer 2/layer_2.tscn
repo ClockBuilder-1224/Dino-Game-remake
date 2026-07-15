@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://duknaucc6sfgg"]
+
+[ext_resource type="PackedScene" uid="uid://dy1ob6q5rb4vn" path="res://Root/Map/ParallaxLayer/parallax_layer_parent.tscn" id="1_0y46c"]
+[ext_resource type="Script" uid="uid://wfxvf7xlq641" path="res://Root/Map/ParallaxLayer/Layer 2/layer_2.gd" id="2_64bh7"]
+[ext_resource type="Texture2D" uid="uid://cwsl8ywlu7oy2" path="res://Root/Map/ParallaxLayer/Layer 2/RepeatableLayer.png" id="2_y1sdj"]
+[ext_resource type="Texture2D" uid="uid://dr6m3fdo6mgaw" path="res://Root/Map/ParallaxLayer/Layer 2/SpawnableItems.png" id="3_y1sdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
+size = Vector2(240, 21)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1dep"]
+polygon = PackedVector2Array(-6, 0, -6, -18, -15, -18, -15, -19, -16, -19, -16, -31, -15, -31, -15, -32, -10, -32, -10, -31, -9, -31, -9, -25, -6, -25, -6, -41, -5, -41, -5, -42, -4, -42, -4, -43, -5, -43, -5, -44, -4, -44, -4, -46, -3, -46, -3, -47, -2, -47, -2, -48, -1, -48, -1, -49, 1, -49, 1, -48, 2, -48, 2, -47, 3, -47, 3, -46, 4, -46, 4, -44, 5, -44, 5, -43, 4, -43, 4, -42, 5, -42, 5, -41, 6, -41, 6, -28, 9, -28, 9, -32, 9, -33, 10, -33, 10, -34, 15, -34, 15, -33, 16, -33, 16, -23, 15, -23, 15, -22, 6, -22, 6, -6, 9, -6, 9, -4, 10, -4, 10, -2, 11, -2, 11, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y1sdj"]
+polygon = PackedVector2Array(-14, 0, -14, -3, -13, -3, -13, -4, -12, -4, -12, -7, -11, -7, -11, -9, -10, -9, -10, -12, -9, -12, -9, -13, -4, -13, -4, -14, 4, -14, 4, -13, 8, -13, 8, -12, 9, -12, 9, -10, 10, -10, 10, -7, 11, -7, 11, -5, 12, -5, 12, -4, 13, -4, 13, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_64bh7"]
+polygon = PackedVector2Array(-3, 0, -3, -10, -4, -10, -4, -12, -13, -12, -13, -27, 13, -27, 13, -12, 4, -12, 4, -10, 3, -10, 3, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c2h40"]
+polygon = PackedVector2Array(-7, 0, -7, -12, -6, -12, -6, -13, 6, -13, 6, -12, 7, -12, 7, 0)
+
+[node name="Layer_2" unique_id=874882715 instance=ExtResource("1_0y46c")]
+script = ExtResource("2_64bh7")
+SPEED = 240
+
+[node name="RepeatableLayer" type="Sprite2D" parent="." index="0" unique_id=1919257195]
+position = Vector2(120, -48)
+texture = ExtResource("2_y1sdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=526872037]
+position = Vector2(120, -10.5)
+shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="ObjectGenerationLocations" type="Node2D" parent="." index="2" unique_id=1829257708]
+
+[node name="Marker2D" type="Marker2D" parent="ObjectGenerationLocations" index="0" unique_id=365407886]
+position = Vector2(16, -14)
+
+[node name="Marker2D2" type="Marker2D" parent="ObjectGenerationLocations" index="1" unique_id=1644529892]
+position = Vector2(88, -16)
+
+[node name="Marker2D3" type="Marker2D" parent="ObjectGenerationLocations" index="2" unique_id=197779464]
+position = Vector2(151, -17)
+
+[node name="Cactus" type="Node2D" parent="." index="3" unique_id=1900938670]
+visible = false
+
+[node name="image" type="Sprite2D" parent="Cactus" index="0" unique_id=306707581]
+position = Vector2(0, -25)
+texture = ExtResource("3_y1sdj")
+region_enabled = true
+region_rect = Rect2(1, 4, 34, 50)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Cactus" index="1" unique_id=2094980152]
+occluder = SubResource("OccluderPolygon2D_p1dep")
+
+[node name="Rock" type="Node2D" parent="." index="4" unique_id=999283597]
+visible = false
+
+[node name="image" type="Sprite2D" parent="Rock" index="0" unique_id=2077954770]
+position = Vector2(0, -9)
+texture = ExtResource("3_y1sdj")
+region_enabled = true
+region_rect = Rect2(42, 36, 28, 18)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Rock" index="1" unique_id=1992543715]
+occluder = SubResource("OccluderPolygon2D_y1sdj")
+
+[node name="Sign" type="Node2D" parent="." index="5" unique_id=1624654289]
+visible = false
+
+[node name="image" type="Sprite2D" parent="Sign" index="0" unique_id=1715081111]
+position = Vector2(0, -16)
+texture = ExtResource("3_y1sdj")
+region_enabled = true
+region_rect = Rect2(72, 22, 28, 32)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sign" index="1" unique_id=1056868872]
+occluder = SubResource("OccluderPolygon2D_64bh7")
+
+[node name="Sign2" type="Node2D" parent="." index="6" unique_id=1059323114]
+visible = false
+
+[node name="image" type="Sprite2D" parent="Sign2" index="0" unique_id=981611563]
+position = Vector2(0, -8)
+texture = ExtResource("3_y1sdj")
+region_enabled = true
+region_rect = Rect2(102, 38, 18, 16)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sign2" index="1" unique_id=687194586]
+occluder = SubResource("OccluderPolygon2D_c2h40")

@@ -2,18 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://dy1ob6q5rb4vn" path="res://Root/Map/ParallaxLayer/parallax_layer_parent.tscn" id="1_fsa8v"]
 [ext_resource type="Texture2D" uid="uid://cu0wgxwoeilks" path="res://Root/Map/ParallaxLayer/Layer 1/Floor.png" id="2_63pvk"]
+[ext_resource type="Script" uid="uid://lu00qwovwob0" path="res://Root/Map/ParallaxLayer/Layer 1/floor.gd" id="2_xmfio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
 size = Vector2(144, 45)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1dep"]
+polygon = PackedVector2Array(0, -45, 0, 0, 144, 0, 144, -45)
+
 [node name="Floor" unique_id=874882715 instance=ExtResource("1_fsa8v")]
 collision_layer = 2
 collision_mask = 3
+script = ExtResource("2_xmfio")
 
-[node name="Floor" type="Sprite2D" parent="." index="0" unique_id=1133204149]
-position = Vector2(72, -24)
-texture = ExtResource("2_63pvk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1092185296]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0" unique_id=1092185296]
 position = Vector2(72, -22.5)
 shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="Floor" type="Sprite2D" parent="." index="1" unique_id=1133204149]
+modulate = Color(0.88235295, 0.88235295, 0.88235295, 1)
+position = Vector2(72, -24)
+texture = ExtResource("2_63pvk")
+region_enabled = true
+region_rect = Rect2(0, 0, 144, 48)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2" unique_id=403585830]
+occluder = SubResource("OccluderPolygon2D_p1dep")
