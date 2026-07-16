@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dc8mcvdhs2iu0" path="res://Root/Map/ParallaxLayer/Layer 1/Main_Scene_Floor.gd" id="2_s0oq2"]
 [ext_resource type="PackedScene" uid="uid://duknaucc6sfgg" path="res://Root/Map/ParallaxLayer/Layer 2/layer_2.tscn" id="4_8w3cb"]
 [ext_resource type="Script" uid="uid://bwhetmbdp237e" path="res://Root/Map/ParallaxLayer/Layer 2/layer_2_MainScene.gd" id="4_ete24"]
+[ext_resource type="Script" uid="uid://c0airry0qid73" path="res://Root/Map/ParallaxLayer/Layer 3/layer_3_Mainscene.gd" id="6_jpg6i"]
+[ext_resource type="PackedScene" uid="uid://dx8t66hswt53k" path="res://Root/Map/ParallaxLayer/Layer 3/layer_3.tscn" id="6_vopnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
 size = Vector2(17.5, 36)
@@ -12,6 +14,8 @@ size = Vector2(17.5, 36)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p1dep"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1g54t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ewuc"]
 
 [node name="Root" type="Node2D" unique_id=1429275306]
 
@@ -91,6 +95,32 @@ wait_time = 0.9
 autostart = true
 
 [node name="Layer3" type="StaticBody2D" parent="ParallaxLayer" unique_id=2051338411]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_jpg6i")
+
+[node name="Marker2D" type="Marker2D" parent="ParallaxLayer/Layer3" unique_id=2054322059]
+position = Vector2(477, 233)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/Layer3" unique_id=1978256471]
+position = Vector2(97, 256)
+shape = SubResource("WorldBoundaryShape2D_6ewuc")
+
+[node name="GeneratedSprites" type="Node2D" parent="ParallaxLayer/Layer3" unique_id=1512219858]
+
+[node name="Layer_3" parent="ParallaxLayer/Layer3/GeneratedSprites" unique_id=1345144187 instance=ExtResource("6_vopnr")]
+position = Vector2(-3, 233)
+
+[node name="Layer_4" parent="ParallaxLayer/Layer3/GeneratedSprites" unique_id=1024356627 instance=ExtResource("6_vopnr")]
+position = Vector2(237, 233)
+
+[node name="Layer_5" parent="ParallaxLayer/Layer3/GeneratedSprites" unique_id=1791462337 instance=ExtResource("6_vopnr")]
+position = Vector2(477, 233)
+
+[node name="GenerationTime" type="Timer" parent="ParallaxLayer/Layer3" unique_id=681488634]
+wait_time = 7.300000000000001
+autostart = true
 
 [connection signal="timeout" from="ParallaxLayer/Floor/NewFloorTimer" to="ParallaxLayer/Floor" method="_on_new_floor_timer_timeout"]
 [connection signal="timeout" from="ParallaxLayer/Layer2/GenerationTime" to="ParallaxLayer/Layer2" method="_on_generation_time_timeout"]
+[connection signal="timeout" from="ParallaxLayer/Layer3/GenerationTime" to="ParallaxLayer/Layer3" method="_on_generation_time_timeout"]

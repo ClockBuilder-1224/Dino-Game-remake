@@ -1,12 +1,10 @@
 extends StaticBody2D
 
-var spriteInstance = preload("res://Root/Map/ParallaxLayer/Layer 2/layer_2.tscn")
-
+var spriteInstance = preload("res://Root/Map/ParallaxLayer/Layer 3/layer_3.tscn")
 
 func _on_generation_time_timeout() -> void:
 	var newFloor = spriteInstance.instantiate()
 	
 	newFloor.position = $Marker2D.position
-	newFloor.name = "Layer_2"
+	newFloor.name = "Layer_3"
 	$GeneratedSprites.add_child(newFloor)
-	
