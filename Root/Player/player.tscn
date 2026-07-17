@@ -42,9 +42,10 @@ size = Vector2(17, 36)
 script = ExtResource("1_uk5gm")
 
 [node name="Art" type="AnimatedSprite2D" parent="." unique_id=2021234526]
+light_mask = 2
 position = Vector2(-4, -4)
 sprite_frames = SubResource("SpriteFrames_p1dep")
-animation = &"Jump"
+animation = &"Run"
 autoplay = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1917198514]

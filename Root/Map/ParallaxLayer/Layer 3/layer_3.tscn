@@ -36,7 +36,7 @@ position = Vector2(39, -48)
 
 [node name="Marker2D2" type="Marker2D" parent="ObjectGenerationLocations" index="1" unique_id=1542654464]
 unique_name_in_owner = true
-position = Vector2(91, -25)
+position = Vector2(91, -34)
 
 [node name="Marker2D3" type="Marker2D" parent="ObjectGenerationLocations" index="2" unique_id=284359951]
 unique_name_in_owner = true
