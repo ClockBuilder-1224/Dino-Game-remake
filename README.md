@@ -1,0 +1,2 @@
+For those who will be forking the project, please credit the original developer of the game, Aka ClockBuilder-1224. Feel free to change up the assets, 
+add new features as this project may serve as a template for your creations in the google Dino Game. Also please know that the original developers of the Dino Game is Google and if they demand to take down this project, Clock Builder WILL proceed so if the project isn't public anymore, please know that this is the reason. Thank you and have fun.
