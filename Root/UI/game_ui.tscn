@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://c2n4mwretemex"]
+
+[ext_resource type="Texture2D" uid="uid://g7our2x8qbbn" path="res://Root/UI/UI.png" id="1_shk3m"]
+[ext_resource type="Script" uid="uid://bvv5pvlu32dk1" path="res://Root/UI/game_ui.gd" id="1_uvmfh"]
+[ext_resource type="FontFile" uid="uid://dxxuyfo2jsl8w" path="res://Root/UI/PixelifySans-Regular.ttf" id="2_d2t6n"]
+[ext_resource type="Shader" uid="uid://c18grh2oplalq" path="res://Root/UI/DeathScreen/Death.gdshader" id="4_fmsa7"]
+[ext_resource type="Shader" uid="uid://cesmj2mnb88jw" path="res://Root/UI/DeathScreen/Death_VignetteShader.gdshader" id="5_n01a3"]
+[ext_resource type="Texture2D" uid="uid://bcg3ihcdeuua1" path="res://Root/UI/DeathScreen/DeathScreen.png" id="6_r4yuq"]
+[ext_resource type="Texture2D" uid="uid://b0uvm54qkr83f" path="res://Root/UI/DeathScreen/HowHeDied/WaysToDie.png" id="7_tlemb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvmfh"]
+shader = ExtResource("4_fmsa7")
+shader_parameter/shake = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1dep"]
+shader = ExtResource("5_n01a3")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.53
+shader_parameter/outer_radius = 0.96
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1dep"]
+atlas = ExtResource("7_tlemb")
+region = Rect2(0, 0, 42, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlemb"]
+atlas = ExtResource("7_tlemb")
+region = Rect2(42, 0, 42, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p1dt"]
+atlas = ExtResource("7_tlemb")
+region = Rect2(84, 0, 42, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tx4i"]
+atlas = ExtResource("7_tlemb")
+region = Rect2(126, 0, 42, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o1wb"]
+atlas = ExtResource("7_tlemb")
+region = Rect2(168, 0, 42, 23)
+
+[node name="GameUI" type="CanvasLayer" unique_id=2113003903]
+script = ExtResource("1_uvmfh")
+
+[node name="Main" type="Control" parent="." unique_id=505856790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="Main" unique_id=68203251]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.045
+anchor_right = 0.231
+anchor_bottom = 0.16000001
+offset_left = -0.16799545
+offset_top = -0.16000175
+offset_right = -151.44531
+offset_bottom = -49.680008
+scale = Vector2(3, 3)
+texture = ExtResource("1_shk3m")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="Main" unique_id=378766646]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 266.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.9763705, 0.7500247, 0.48066455, 1)
+theme_override_fonts/font = ExtResource("2_d2t6n")
+theme_override_font_sizes/font_size = 38
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathUI" type="Control" parent="." unique_id=803042484]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MonochromeShader" type="ColorRect" parent="DeathUI" unique_id=1244452884]
+material = SubResource("ShaderMaterial_uvmfh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="ColorRect" parent="DeathUI" unique_id=1681777876]
+material = SubResource("ShaderMaterial_p1dep")
+layout_mode = 0
+offset_left = -210.0
+offset_top = -315.0
+offset_right = 1414.0
+offset_bottom = 987.0
+
+[node name="YouDiedScreen" type="TextureRect" parent="DeathUI" unique_id=1772630040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1008.0
+offset_bottom = -567.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+texture = ExtResource("6_r4yuq")
+
+[node name="Score" type="Label" parent="DeathUI" unique_id=442024606]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.47800002
+anchor_right = 0.648
+anchor_bottom = 0.56200004
+offset_left = -0.36798096
+offset_top = -14.744019
+offset_right = 0.5040283
+offset_bottom = -15.176025
+theme_override_colors/font_color = Color(0.9764706, 0.7490196, 0.48235294, 1)
+theme_override_fonts/font = ExtResource("2_d2t6n")
+theme_override_font_sizes/font_size = 44
+text = "123123"
+vertical_alignment = 2
+
+[node name="Minecart" type="TextureRect" parent="DeathUI" unique_id=1853275938]
+visible = false
+custom_minimum_size = Vector2(42, 21)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 450.0
+offset_bottom = 391.0
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_p1dep")
+
+[node name="Cactus" type="TextureRect" parent="DeathUI" unique_id=195857078]
+visible = false
+custom_minimum_size = Vector2(42, 21)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 450.0
+offset_bottom = 391.0
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_tlemb")
+
+[node name="Manhole" type="TextureRect" parent="DeathUI" unique_id=744148326]
+visible = false
+custom_minimum_size = Vector2(42, 21)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 450.0
+offset_bottom = 391.0
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_1p1dt")
+
+[node name="Rock" type="TextureRect" parent="DeathUI" unique_id=2146408256]
+visible = false
+custom_minimum_size = Vector2(42, 21)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 450.0
+offset_bottom = 391.0
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_2tx4i")
+
+[node name="TrainStopper" type="TextureRect" parent="DeathUI" unique_id=1375657259]
+visible = false
+custom_minimum_size = Vector2(42, 21)
+layout_mode = 0
+offset_left = 408.0
+offset_top = 368.0
+offset_right = 450.0
+offset_bottom = 391.0
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_3o1wb")
+
+[node name="Button" type="Button" parent="DeathUI" unique_id=370432016]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 554.0
+offset_right = 601.0
+offset_bottom = 585.0
+text = "Replay"
+
+[connection signal="pressed" from="DeathUI/Button" to="." method="_on_button_pressed"]

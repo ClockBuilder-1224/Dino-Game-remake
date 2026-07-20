@@ -4,12 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://djp7kk3ttywwa" path="res://Root/Player/player.tscn" id="1_lya30"]
 [ext_resource type="PackedScene" uid="uid://gq2c428xqwcr" path="res://Root/Map/ParallaxLayer/Layer 1/floor.tscn" id="2_8fnrc"]
 [ext_resource type="Script" uid="uid://dc8mcvdhs2iu0" path="res://Root/Map/ParallaxLayer/Layer 1/Main_Scene_Floor.gd" id="2_s0oq2"]
+[ext_resource type="Script" uid="uid://dglpfdfq42dku" path="res://Root/PlayerDeath.gd" id="3_hnjtb"]
+[ext_resource type="Script" uid="uid://pmgdpkjm6ghu" path="res://Root/Obstacles/obstacle.gd" id="3_jxrwg"]
 [ext_resource type="PackedScene" uid="uid://duknaucc6sfgg" path="res://Root/Map/ParallaxLayer/Layer 2/layer_2.tscn" id="4_8w3cb"]
 [ext_resource type="Script" uid="uid://bwhetmbdp237e" path="res://Root/Map/ParallaxLayer/Layer 2/layer_2_MainScene.gd" id="4_ete24"]
 [ext_resource type="Script" uid="uid://c0airry0qid73" path="res://Root/Map/ParallaxLayer/Layer 3/layer_3_Mainscene.gd" id="6_jpg6i"]
 [ext_resource type="PackedScene" uid="uid://dx8t66hswt53k" path="res://Root/Map/ParallaxLayer/Layer 3/layer_3.tscn" id="6_vopnr"]
 [ext_resource type="Texture2D" uid="uid://cu7m3vijrbb3y" path="res://Root/Map/ParallaxLayer/Sky/Sky.png" id="8_v6ngm"]
 [ext_resource type="Texture2D" uid="uid://cxshg4yqnnvg3" path="res://Root/Map/ParallaxLayer/Sky/2d_lights_and_shadows_neutral_point_light.webp" id="10_v2cse"]
+[ext_resource type="PackedScene" uid="uid://c2n4mwretemex" path="res://Root/UI/game_ui.tscn" id="13_7f0sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
 size = Vector2(17.5, 36)
@@ -32,17 +35,30 @@ position = Vector2(47, 205)
 
 [node name="Player_Collision" type="Area2D" parent="Player" unique_id=1352966936]
 position = Vector2(0.5, 0)
+script = ExtResource("3_hnjtb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player_Collision" unique_id=1801932463]
 position = Vector2(-0.25, 3)
 shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="Obstacle" type="Node2D" parent="." unique_id=1769739532]
+modulate = Color(0.76924884, 0.7692489, 0.76924896, 1)
+script = ExtResource("3_jxrwg")
+
+[node name="GeneratedObstacles" type="Node2D" parent="Obstacle" unique_id=1561298586]
+
+[node name="NextSpawn" type="Timer" parent="Obstacle" unique_id=67168848]
+autostart = true
+
+[node name="SpawnPoint" type="Marker2D" parent="Obstacle" unique_id=218363892]
+position = Vector2(564, 230)
 
 [node name="ParallaxLayer" type="Node2D" parent="." unique_id=1014615478]
 modulate = Color(0.9338256, 0.9338256, 0.9338256, 1)
 position = Vector2(0, 4)
 
 [node name="Floor" type="StaticBody2D" parent="ParallaxLayer" unique_id=2007243293]
-z_index = 3
+z_index = 4
 position = Vector2(97, 220)
 collision_layer = 3
 script = ExtResource("2_s0oq2")
@@ -145,11 +161,16 @@ energy = 0.17
 shadow_enabled = true
 texture = ExtResource("10_v2cse")
 texture_scale = 3.18
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1191274380]
 position = Vector2(183, 141)
 zoom = Vector2(3.5, 3.5)
 
+[node name="GameUI" parent="." unique_id=2113003903 instance=ExtResource("13_7f0sg")]
+
+[connection signal="area_entered" from="Player/Player_Collision" to="." method="_on_player_collision_area_entered"]
+[connection signal="timeout" from="Obstacle/NextSpawn" to="Obstacle" method="_on_next_spawn_timeout"]
 [connection signal="timeout" from="ParallaxLayer/Floor/NewFloorTimer" to="ParallaxLayer/Floor" method="_on_new_floor_timer_timeout"]
 [connection signal="timeout" from="ParallaxLayer/Layer2/GenerationTime" to="ParallaxLayer/Layer2" method="_on_generation_time_timeout"]
 [connection signal="timeout" from="ParallaxLayer/Layer3/GenerationTime" to="ParallaxLayer/Layer3" method="_on_generation_time_timeout"]

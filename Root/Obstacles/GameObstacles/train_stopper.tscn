@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dkrdh7gccnn4e"]
+
+[ext_resource type="PackedScene" uid="uid://cojsia42kpmml" path="res://Root/Obstacles/obstacle_parent.tscn" id="1_1lgx3"]
+[ext_resource type="Texture2D" uid="uid://dwv4piy4l2gdq" path="res://Root/Obstacles/obstacles_sprites.png" id="2_udea1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
+size = Vector2(12, 31.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1dep"]
+polygon = PackedVector2Array(-19, 0, -19, -2, -4, -17, -8, -21, -8, -14, -9, -13, -11, -13, -12, -14, -12, -17, -13, -17, -14, -18, -14, -22, -12, -24, -12, -26, -13, -26, -14, -27, -14, -31, -13, -32, -12, -32, -12, -34, -11, -34, -11, -35, -9, -35, -8, -34, -8, -27, -7, -27, -7, -26, -5, -26, 21, 0, 13, 0, 10, -3, -10, -3, -6, -7, 6, -7, 0, -13, -10, -3, -13, 0)
+
+[node name="TrainStopper" unique_id=549210939 instance=ExtResource("1_1lgx3")]
+type = 4
+
+[node name="ObstaclesSprites" type="Sprite2D" parent="." index="0" unique_id=1458138747]
+position = Vector2(1, -25)
+texture = ExtResource("2_udea1")
+region_enabled = true
+region_rect = Rect2(105, 0, 46, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1810518714]
+position = Vector2(-4, -15.25)
+shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2" unique_id=3030703]
+occluder = SubResource("OccluderPolygon2D_p1dep")

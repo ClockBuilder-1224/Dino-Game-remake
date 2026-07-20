@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cqdmshwlu3db5"]
+
+[ext_resource type="PackedScene" uid="uid://cojsia42kpmml" path="res://Root/Obstacles/obstacle_parent.tscn" id="1_j0qpw"]
+[ext_resource type="Texture2D" uid="uid://dwv4piy4l2gdq" path="res://Root/Obstacles/obstacles_sprites.png" id="2_fg84b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
+size = Vector2(7, 38)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p1dep"]
+polygon = PackedVector2Array(-5, 0, -5, -16, -12, -16, -15, -19, -15, -29, -14, -30, -9, -30, -8, -29, -8, -23, -5, -23, -5, -40, -4, -41, 5, -41, 6, -40, 6, -27, 10, -27, 10, -36, 11, -37, 16, -37, 17, -36, 17, -21, 16, -20, 6, -20, 6, 0)
+
+[node name="CactusObstacle" unique_id=549210939 instance=ExtResource("1_j0qpw")]
+type = 1
+
+[node name="ObstaclesSprites" type="Sprite2D" parent="." index="0" unique_id=1686634950]
+position = Vector2(1, -25)
+texture = ExtResource("2_fg84b")
+region_enabled = true
+region_rect = Rect2(9, 0, 32, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1407133546]
+position = Vector2(0.5, -19)
+shape = SubResource("RectangleShape2D_p1dep")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2" unique_id=802037661]
+occluder = SubResource("OccluderPolygon2D_p1dep")

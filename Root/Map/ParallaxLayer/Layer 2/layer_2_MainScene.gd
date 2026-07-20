@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var spriteInstance = preload("res://Root/Map/ParallaxLayer/Layer 2/layer_2.tscn")
-
+signal STOP
 
 func _on_generation_time_timeout() -> void:
 	var newFloor = spriteInstance.instantiate()
