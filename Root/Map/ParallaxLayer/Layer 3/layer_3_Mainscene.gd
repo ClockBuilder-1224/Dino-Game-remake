@@ -9,3 +9,11 @@ func _on_generation_time_timeout() -> void:
 	newFloor.position = $Marker2D.position
 	newFloor.name = "Layer_3"
 	$GeneratedSprites.add_child(newFloor)
+
+
+
+func _on_stop() -> void:
+	$GenerationTime.stop()
+	var allGenerations: Array = $GeneratedSprites.get_children()
+	for floor in allGenerations:
+		floor.SPEED = 0

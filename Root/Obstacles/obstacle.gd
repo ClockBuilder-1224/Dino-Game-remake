@@ -6,7 +6,7 @@ var train_Stopper = preload("res://Root/Obstacles/GameObstacles/train_stopper.ts
 var rock = preload("res://Root/Obstacles/GameObstacles/rock.tscn")
 var man_hole = preload("res://Root/Obstacles/GameObstacles/train_stopper.tscn")
 
-signal STOP
+signal stop
 
 func newObstacle():
 	var random = randi_range(0, 5)
@@ -45,3 +45,10 @@ func _on_next_spawn_timeout() -> void:
 	
 	$NextSpawn.wait_time = waitSpeed
 	$NextSpawn.start()
+
+
+func _on_stop() -> void:
+	var Allobstacles : Array = $GeneratedObstacles.get_children()
+	
+	for obstacles in Allobstacles:
+		obstacles.SPEED = 0

@@ -4,11 +4,59 @@
 [ext_resource type="Script" uid="uid://b2udfb4j6hinq" path="res://Root/Player/player.gd" id="1_uk5gm"]
 [ext_resource type="Texture2D" uid="uid://cspnnp4trcxql" path="res://Root/Player/Sprites/Dino_Jump.png" id="2_bir0c"]
 [ext_resource type="Texture2D" uid="uid://d2mqykyn0wlh6" path="res://Root/Player/Sprites/Dinosaur_Run2.png" id="2_uk5gm"]
+[ext_resource type="Texture2D" uid="uid://dicuwt33xdtrn" path="res://Root/Player/Sprites/DeathAnimation1.png" id="2_vals4"]
 [ext_resource type="Texture2D" uid="uid://gfp61i8icnik" path="res://Root/Player/Sprites/Dinosaur_Run3.png" id="3_bir0c"]
 [ext_resource type="Texture2D" uid="uid://bydb72spr670y" path="res://Root/Player/Sprites/Dinosaur_Run4.png" id="4_vals4"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlcoq"]
+atlas = ExtResource("2_vals4")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qff04"]
+atlas = ExtResource("2_vals4")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hcwc"]
+atlas = ExtResource("2_vals4")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gp4x"]
+atlas = ExtResource("2_vals4")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30khi"]
+atlas = ExtResource("2_vals4")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s336w"]
+atlas = ExtResource("2_vals4")
+region = Rect2(250, 0, 50, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1dep"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlcoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qff04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hcwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gp4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30khi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s336w")
+}],
+"loop": 2,
+"name": &"Death",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_bir0c")
@@ -45,11 +93,10 @@ script = ExtResource("1_uk5gm")
 light_mask = 2
 position = Vector2(-4, -4)
 sprite_frames = SubResource("SpriteFrames_p1dep")
-animation = &"Run"
+animation = &"Death"
 autoplay = "Run"
+frame_progress = 0.5806549
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1917198514]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_p1dep")
-
-[connection signal="die" from="." to="." method="_on_die"]

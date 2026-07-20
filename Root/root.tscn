@@ -28,6 +28,7 @@ size = Vector2(89, 169)
 
 [node name="Root" type="Node2D" unique_id=1429275306]
 script = ExtResource("1_k6r5e")
+metadata/_edit_horizontal_guides_ = [247.0]
 
 [node name="Player" parent="." unique_id=552128160 instance=ExtResource("1_lya30")]
 z_index = 4
@@ -166,12 +167,20 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1191274380]
 position = Vector2(183, 141)
 zoom = Vector2(3.5, 3.5)
+limit_left = 0
+limit_bottom = 247
+position_smoothing_enabled = true
+position_smoothing_speed = 0.5
 
 [node name="GameUI" parent="." unique_id=2113003903 instance=ExtResource("13_7f0sg")]
 
 [connection signal="area_entered" from="Player/Player_Collision" to="." method="_on_player_collision_area_entered"]
+[connection signal="stop" from="Obstacle" to="Obstacle" method="_on_stop"]
 [connection signal="timeout" from="Obstacle/NextSpawn" to="Obstacle" method="_on_next_spawn_timeout"]
+[connection signal="STOP" from="ParallaxLayer/Floor" to="ParallaxLayer/Floor" method="_on_stop"]
 [connection signal="timeout" from="ParallaxLayer/Floor/NewFloorTimer" to="ParallaxLayer/Floor" method="_on_new_floor_timer_timeout"]
+[connection signal="STOP" from="ParallaxLayer/Layer2" to="ParallaxLayer/Layer2" method="_on_stop"]
 [connection signal="timeout" from="ParallaxLayer/Layer2/GenerationTime" to="ParallaxLayer/Layer2" method="_on_generation_time_timeout"]
+[connection signal="STOP" from="ParallaxLayer/Layer3" to="ParallaxLayer/Layer3" method="_on_stop"]
 [connection signal="timeout" from="ParallaxLayer/Layer3/GenerationTime" to="ParallaxLayer/Layer3" method="_on_generation_time_timeout"]
 [connection signal="area_entered" from="ParallaxLayer/Parallax Killer" to="." method="_on_parallax_killer_area_entered"]

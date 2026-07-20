@@ -81,6 +81,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeathUI" type="Control" parent="." unique_id=803042484]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,4 +198,5 @@ offset_right = 601.0
 offset_bottom = 585.0
 text = "Replay"
 
+[connection signal="death" from="." to="." method="_on_death"]
 [connection signal="pressed" from="DeathUI/Button" to="." method="_on_button_pressed"]

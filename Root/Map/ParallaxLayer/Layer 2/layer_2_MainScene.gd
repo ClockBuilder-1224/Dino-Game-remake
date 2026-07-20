@@ -10,3 +10,10 @@ func _on_generation_time_timeout() -> void:
 	newFloor.name = "Layer_2"
 	$GeneratedSprites.add_child(newFloor)
 	
+
+
+func _on_stop() -> void:
+	$GenerationTime.stop()
+	var allGenerations: Array = $GeneratedSprites.get_children()
+	for floor in allGenerations:
+		floor.SPEED = 0
