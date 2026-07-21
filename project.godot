@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dino-Game"
-run/main_scene="uid://cos8yxww56gbt"
+run/main_scene="uid://ga50jxmg085k"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

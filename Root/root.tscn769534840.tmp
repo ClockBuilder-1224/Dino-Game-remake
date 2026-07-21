@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dx8t66hswt53k" path="res://Root/Map/ParallaxLayer/Layer 3/layer_3.tscn" id="6_vopnr"]
 [ext_resource type="Texture2D" uid="uid://cu7m3vijrbb3y" path="res://Root/Map/ParallaxLayer/Sky/Sky.png" id="8_v6ngm"]
 [ext_resource type="Texture2D" uid="uid://cxshg4yqnnvg3" path="res://Root/Map/ParallaxLayer/Sky/2d_lights_and_shadows_neutral_point_light.webp" id="10_v2cse"]
-[ext_resource type="PackedScene" uid="uid://c2n4mwretemex" path="res://Root/UI/GameUI/game_ui.tscn" id="13_7f0sg"]
+[ext_resource type="PackedScene" uid="uid://c2n4mwretemex" path="res://Root/UI/game_ui.tscn" id="13_7f0sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1dep"]
 size = Vector2(17.5, 36)

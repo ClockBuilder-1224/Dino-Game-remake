@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c2n4mwretemex"]
 
-[ext_resource type="Texture2D" uid="uid://g7our2x8qbbn" path="res://Root/UI/UI.png" id="1_shk3m"]
-[ext_resource type="Script" uid="uid://bvv5pvlu32dk1" path="res://Root/UI/game_ui.gd" id="1_uvmfh"]
+[ext_resource type="Texture2D" uid="uid://g7our2x8qbbn" path="res://Root/UI/GameUI/UI.png" id="1_shk3m"]
+[ext_resource type="Script" uid="uid://bvv5pvlu32dk1" path="res://Root/UI/GameUI/game_ui.gd" id="1_uvmfh"]
 [ext_resource type="FontFile" uid="uid://dxxuyfo2jsl8w" path="res://Root/UI/PixelifySans-Regular.ttf" id="2_d2t6n"]
 [ext_resource type="Shader" uid="uid://c18grh2oplalq" path="res://Root/UI/DeathScreen/Death.gdshader" id="4_fmsa7"]
 [ext_resource type="Shader" uid="uid://cesmj2mnb88jw" path="res://Root/UI/DeathScreen/Death_VignetteShader.gdshader" id="5_n01a3"]
 [ext_resource type="Texture2D" uid="uid://bcg3ihcdeuua1" path="res://Root/UI/DeathScreen/DeathScreen.png" id="6_r4yuq"]
 [ext_resource type="Texture2D" uid="uid://b0uvm54qkr83f" path="res://Root/UI/DeathScreen/HowHeDied/WaysToDie.png" id="7_tlemb"]
+[ext_resource type="Texture2D" uid="uid://cqx4txan0u0cr" path="res://Root/UI/DeathScreen/Redo.png" id="8_1p1dt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uvmfh"]
 shader = ExtResource("4_fmsa7")
@@ -37,6 +38,18 @@ region = Rect2(126, 0, 42, 23)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o1wb"]
 atlas = ExtResource("7_tlemb")
 region = Rect2(168, 0, 42, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g54t"]
+atlas = ExtResource("8_1p1dt")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ewuc"]
+atlas = ExtResource("8_1p1dt")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtnb6"]
+atlas = ExtResource("8_1p1dt")
+region = Rect2(96, 0, 97, 48)
 
 [node name="GameUI" type="CanvasLayer" unique_id=2113003903]
 script = ExtResource("1_uvmfh")
@@ -190,13 +203,16 @@ offset_bottom = 391.0
 scale = Vector2(8, 8)
 texture = SubResource("AtlasTexture_3o1wb")
 
-[node name="Button" type="Button" parent="DeathUI" unique_id=370432016]
+[node name="Replay" type="TextureButton" parent="DeathUI" unique_id=1802523867]
 layout_mode = 0
-offset_left = 541.0
-offset_top = 554.0
-offset_right = 601.0
-offset_bottom = 585.0
-text = "Replay"
+offset_left = 477.0
+offset_top = 524.0
+offset_right = 573.0
+offset_bottom = 572.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_1g54t")
+texture_pressed = SubResource("AtlasTexture_6ewuc")
+texture_hover = SubResource("AtlasTexture_qtnb6")
 
 [connection signal="death" from="." to="." method="_on_death"]
-[connection signal="pressed" from="DeathUI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="DeathUI/Replay" to="." method="_on_replay_pressed"]

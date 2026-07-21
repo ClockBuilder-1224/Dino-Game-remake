@@ -4,7 +4,8 @@ var cactus = preload("res://Root/Obstacles/GameObstacles/cactus_obstacle.tscn")
 var minecart = preload("res://Root/Obstacles/GameObstacles/minecart.tscn")
 var train_Stopper = preload("res://Root/Obstacles/GameObstacles/train_stopper.tscn")
 var rock = preload("res://Root/Obstacles/GameObstacles/rock.tscn")
-var man_hole = preload("res://Root/Obstacles/GameObstacles/train_stopper.tscn")
+var man_hole = preload("res://Root/Obstacles/GameObstacles/man_hole.tscn")
+
 
 signal stop
 
@@ -52,3 +53,7 @@ func _on_stop() -> void:
 	
 	for obstacles in Allobstacles:
 		obstacles.SPEED = 0
+
+
+func _on_obstacle_killer_area_entered(area: Area2D) -> void:
+	area.queue_free()

@@ -46,9 +46,10 @@ func _process(delta: float) -> void:
 		$DeathUI/Cactus.visible = false
 
 
-func _on_button_pressed() -> void:
-	get_tree().reload_current_scene()
-
 
 func _on_death() -> void:
 	$DeathUI.visible = true
+
+
+func _on_replay_pressed() -> void:
+	get_tree().reload_current_scene()

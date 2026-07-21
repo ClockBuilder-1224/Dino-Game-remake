@@ -6,6 +6,8 @@ var currentState = 0
 
 @export var inputDisabled : bool = false
 
+signal fall
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -32,3 +34,8 @@ func _updateAnim():
 		$Art.play("Jump")
 	
 	
+
+
+func _on_fall() -> void:
+	$CollisionShape2D.position.y -= 100
+	inputDisabled = true

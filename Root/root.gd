@@ -38,11 +38,18 @@ func _on_player_collision_area_entered(area: Area2D) -> void:
 		
 		# wrapping up the game
 		
+		
+		
 		$GameUI.death.emit()
 		scoreIncreaser = 0
 		$Obstacle/NextSpawn.stop()
 		$Obstacle.stop.emit()
-		$Player.inputDisabled = true
+		
+		if area.type == 2:
+			$Player.fall.emit()
+		else:
+			$Player.inputDisabled = true
+		
 		$ParallaxLayer/Floor.STOP.emit()
 		$ParallaxLayer/Layer2.STOP.emit()
 		$ParallaxLayer/Layer3.STOP.emit()
