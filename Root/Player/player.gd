@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("Jump") and is_on_floor() and not inputDisabled:
 		velocity.y = JUMP_VELOCITY
+		$"Jump-Sound".play()
 	
 	_updateAnim()
 	

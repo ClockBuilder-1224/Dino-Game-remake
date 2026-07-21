@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://by7cop2l6tjno" path="res://Root/UI/StartMenu/Game_Menu.png" id="1_b3sc4"]
 [ext_resource type="Texture2D" uid="uid://dywpibdn1bwb8" path="res://Root/UI/StartMenu/Play.png" id="2_8bpgl"]
 [ext_resource type="Texture2D" uid="uid://bnk7w1y0hd462" path="res://Root/UI/StartMenu/NewMenuBackground.png" id="2_r34xf"]
+[ext_resource type="AudioStream" uid="uid://dh8ued1nswpp6" path="res://Root/SoundTrack/StartMenu_SoundTrack.mp3" id="5_byl6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtnb6"]
 atlas = ExtResource("1_b3sc4")
@@ -66,17 +67,9 @@ texture_normal = SubResource("AtlasTexture_p1dep")
 texture_pressed = SubResource("AtlasTexture_1g54t")
 texture_hover = SubResource("AtlasTexture_6ewuc")
 
-[node name="Label" type="Label" parent="." unique_id=464186330]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.006
-anchor_right = 0.77500004
-anchor_bottom = 0.034
-offset_left = -0.9120002
-offset_top = 4.0
-offset_right = -137.80005
-offset_bottom = 31.967999
-text = "If you want to upload your own drawing for the menu background, please contact me on discord.
- Coding_Da_Game, The total resolution of the screen would be 1152 x 648"
+[node name="SoundTrack" type="AudioStreamPlayer2D" parent="." unique_id=1672047855]
+stream = ExtResource("5_byl6e")
+autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="finished" from="SoundTrack" to="." method="_on_sound_track_finished"]

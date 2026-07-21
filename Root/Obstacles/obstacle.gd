@@ -39,6 +39,7 @@ func newObstacle():
 	
 	newObstacle.position = $SpawnPoint.global_position
 	$GeneratedObstacles.add_child(newObstacle)
+	$ObjectSpawn.play()
 
 func _on_next_spawn_timeout() -> void:
 	newObstacle()

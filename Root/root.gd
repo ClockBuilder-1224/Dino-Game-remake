@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_player_collision_area_entered(area: Area2D) -> void:
-	
+	$Die.play()
 	if area.type ==0:
 		$GameUI.death.emit()
 		scoreIncreaser = 0
@@ -53,8 +53,7 @@ func _on_player_collision_area_entered(area: Area2D) -> void:
 		$ParallaxLayer/Floor.STOP.emit()
 		$ParallaxLayer/Layer2.STOP.emit()
 		$ParallaxLayer/Layer3.STOP.emit()
-		
-		var camera = $Camera2D
-		$Player.add_child(camera)
-		
-		
+
+
+func _on_sound_track_finished() -> void:
+	$SoundTrack.play()
